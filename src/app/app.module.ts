@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import {DenunciasPage} from "../pages/denuncias/denuncias";
 import {ListadoPage} from "../pages/listado/listado";
 import {DetallePage} from "../pages/detalle/detalle";
+import {MapaPage} from "../pages/mapa/mapa";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {DetallePage} from "../pages/detalle/detalle";
     HomePage,
     DenunciasPage, // Agregamos el nombre de nuestro nuevo Page
     ListadoPage,
-    DetallePage
+    DetallePage,
+    MapaPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import {DetallePage} from "../pages/detalle/detalle";
     HomePage,
     DenunciasPage, // Agregamos el nombre de nuestro nuevo Page
     ListadoPage,
-    DetallePage
+    DetallePage,
+    MapaPage
   ],
   providers: [
     StatusBar,

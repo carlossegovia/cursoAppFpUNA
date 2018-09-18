@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import {DenunciasPage} from "../pages/denuncias/denuncias";
 import {ListadoPage} from "../pages/listado/listado";
+import {MapaPage} from "../pages/mapa/mapa";
 @Component({
   templateUrl: 'app.html'
 })
@@ -20,7 +21,9 @@ export class MyApp {
     this.pages = [
       {component: HomePage, nombre: 'Inicio'},
       {component: DenunciasPage, nombre: 'Agregar denuncia'},
-      {component: ListadoPage, nombre: 'Listado de denuncias'}
+      {component: ListadoPage, nombre: 'Listado de denuncias'},
+      {component: MapaPage, nombre: 'Mapa'}
+
     ];
 
     platform.ready().then(() => {
