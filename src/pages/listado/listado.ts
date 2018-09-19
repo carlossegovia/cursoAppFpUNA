@@ -13,7 +13,7 @@ import {DetallePage} from "../detalle/detalle";
 export class ListadoPage {
 
   // Definimos una variable que representa el título de nuestro nuevo Page
-  titlePage: string = 'Listado';
+  title: string = 'Listado';
   denuncias: Array<{nombre: string, asunto: string, descripcion: string}> = [];
 
   constructor(public navCtrl: NavController) {

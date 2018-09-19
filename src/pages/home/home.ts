@@ -8,6 +8,8 @@ import {DenunciasPage} from "../denuncias/denuncias";
 })
 export class HomePage {
 
+  title: string = 'Inicio';
+
   constructor(public navCtrl: NavController) {
 
   }

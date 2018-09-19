@@ -1,13 +1,12 @@
 import {
-  GoogleMaps,
   GoogleMap,
-  GoogleMapsEvent,
   GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker, LatLng
+  GoogleMaps,
+  GoogleMapsEvent,
+  LatLng,
+  MarkerOptions
 } from '@ionic-native/google-maps';
-import { Component } from "@angular/core/";
+import {Component} from "@angular/core/";
 
 /**
  * Generated class for the MapaPage page.
@@ -21,6 +20,7 @@ import { Component } from "@angular/core/";
   templateUrl: 'mapa.html',
 })
 export class MapaPage {
+  title: string = 'Mapa';
   map: GoogleMap;
   markers: Array<MarkerOptions>;
   constructor() {
