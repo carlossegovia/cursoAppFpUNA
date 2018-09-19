@@ -11,6 +11,7 @@ import {ListadoPage} from "../pages/listado/listado";
 import {DetallePage} from "../pages/detalle/detalle";
 import {MapaPage} from "../pages/mapa/mapa";
 import {LoginPage} from "../pages/login/login";
+import {RegisterPage} from "../pages/register/register";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {LoginPage} from "../pages/login/login";
     ListadoPage,
     DetallePage,
     LoginPage,
+    RegisterPage,
     MapaPage
   ],
   imports: [
@@ -31,6 +33,7 @@ import {LoginPage} from "../pages/login/login";
     MyApp,
     HomePage,
     LoginPage,
+    RegisterPage,
     DenunciasPage, // Agregamos el nombre de nuestro nuevo Page
     ListadoPage,
     DetallePage,

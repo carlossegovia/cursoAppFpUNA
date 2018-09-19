@@ -7,12 +7,13 @@ import { HomePage } from '../pages/home/home';
 import {DenunciasPage} from "../pages/denuncias/denuncias";
 import {ListadoPage} from "../pages/listado/listado";
 import {MapaPage} from "../pages/mapa/mapa";
+import {LoginPage} from "../pages/login/login";
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = HomePage;
+  rootPage:any = LoginPage;
   pages: Array<{component: any, nombre: string}> = [];
 
   constructor(platform: Platform, statusBar: StatusBar,
@@ -22,7 +23,8 @@ export class MyApp {
       {component: HomePage, nombre: 'Inicio'},
       {component: DenunciasPage, nombre: 'Agregar denuncia'},
       {component: ListadoPage, nombre: 'Listado de denuncias'},
-      {component: MapaPage, nombre: 'Mapa'}
+      {component: MapaPage, nombre: 'Mapa'},
+      {component: LoginPage, nombre: 'Salir'}
 
     ];
 
@@ -39,5 +41,7 @@ export class MyApp {
   //Se usa setRoot para que no aparezca el botón de atrás
     this.nav.setRoot(pagina.component);
   }
+
+
 }
 
