@@ -10,6 +10,7 @@ import {DenunciasPage} from "../pages/denuncias/denuncias";
 import {ListadoPage} from "../pages/listado/listado";
 import {DetallePage} from "../pages/detalle/detalle";
 import {MapaPage} from "../pages/mapa/mapa";
+import {LoginPage} from "../pages/login/login";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {MapaPage} from "../pages/mapa/mapa";
     DenunciasPage, // Agregamos el nombre de nuestro nuevo Page
     ListadoPage,
     DetallePage,
+    LoginPage,
     MapaPage
   ],
   imports: [
@@ -28,6 +30,7 @@ import {MapaPage} from "../pages/mapa/mapa";
   entryComponents: [
     MyApp,
     HomePage,
+    LoginPage,
     DenunciasPage, // Agregamos el nombre de nuestro nuevo Page
     ListadoPage,
     DetallePage,
