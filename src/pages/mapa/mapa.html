@@ -8,9 +8,10 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-
 
 <ion-content>
-  <div id="map_canvas" style="height: 100%; width: 100%"></div>
+  <div (click)="presentPopover(markers[0])" id="map_canvas" style="height: 100%; width: 100%"></div>
+  <ion-fab left bottom>
+    <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

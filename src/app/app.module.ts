@@ -12,6 +12,8 @@ import {DetallePage} from "../pages/detalle/detalle";
 import {MapaPage} from "../pages/mapa/mapa";
 import {LoginPage} from "../pages/login/login";
 import {RegisterPage} from "../pages/register/register";
+import {PopoverPage} from "../pages/popover/popover";
+import {ImagePicker} from "@ionic-native/image-picker";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {RegisterPage} from "../pages/register/register";
     DetallePage,
     LoginPage,
     RegisterPage,
-    MapaPage
+    MapaPage,
+    PopoverPage
   ],
   imports: [
     BrowserModule,
@@ -37,12 +40,14 @@ import {RegisterPage} from "../pages/register/register";
     DenunciasPage, // Agregamos el nombre de nuestro nuevo Page
     ListadoPage,
     DetallePage,
-    MapaPage
+    MapaPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ImagePicker
   ]
 })
 export class AppModule {}

@@ -7,6 +7,8 @@ import {
   MarkerOptions
 } from '@ionic-native/google-maps';
 import {Component} from "@angular/core/";
+import {PopoverController} from "ionic-angular";
+import {PopoverPage} from "../popover/popover";
 
 /**
  * Generated class for the MapaPage page.
@@ -22,50 +24,84 @@ import {Component} from "@angular/core/";
 export class MapaPage {
   title: string = 'Mapa';
   map: GoogleMap;
-  markers: Array<MarkerOptions>;
-  constructor() {
+  markers: Array<any>;
+  constructor(public popoverCtrl: PopoverController) {
     this.markers = [
-      {
-        title: 'BTL Marketing',
-        icon: {
-          url: 'assets/icon/deforestacion.png',
-          size: {
-            width: 32,
-            height: 32
-          }
-        },
-        animation: 'DROP',
-        position: new LatLng(43.0741904, -89.3809802)
+      { direccion: "España c/ etc",
+        categoria: "Deforestación",
+        imagenes: [
+          'assets/imgs/deforestacion1.jpeg',
+          'assets/imgs/deforestacion2.jpeg',
+          'assets/imgs/deforestacion3.jpeg',
+          'assets/imgs/deforestacion4.jpg',
+        ],
+        markerOptions: {
+          title: 'Caso España',
+          icon: {
+            url: 'assets/icon/deforestacion.png',
+            size: {
+              width: 32,
+              height: 32
+            }
+          },
+          animation: 'DROP',
+          position: new LatLng(43.0741904, -89.3809802)
+        }
       },
       {
-        title: 'BTL Marketing',
-        icon: {
-          url: 'assets/icon/deforestacion.png',
-          size: {
-            width: 32,
-            height: 32
-          }
-        },
-        animation: 'DROP',
-        position: new LatLng(43.1, -89.3809802)
+        direccion: "España c/ etc",
+        categoria: "Deforestación",
+        imagenes: [
+          'assets/imgs/deforestacion1.jpeg',
+          'assets/imgs/deforestacion2.jpeg',
+          'assets/imgs/deforestacion3.jpeg',
+          'assets/imgs/deforestacion4.jpg',
+        ],
+        markerOptions: {
+          title: 'BTL Marketing',
+          icon: {
+            url: 'assets/icon/deforestacion.png',
+            size: {
+              width: 32,
+              height: 32
+            }
+          },
+          animation: 'DROP',
+          position: new LatLng(43.1, -89.3809802)
+        }
       } ,
       {
-        title: 'BTL Marketing',
-        icon: {
-          url: 'assets/icon/basurero.png',
-          size: {
-            width: 32,
-            height: 32
-          }
-        },
-        animation: 'DROP',
-        position: new LatLng(43.0741904, -89.4009802)
+        direccion: "España c/ etc",
+        categoria: "Basura",
+        imagenes: [
+          'assets/imgs/basura1.jpg',
+          'assets/imgs/basura2.jpg',
+          'assets/imgs/basura3.jpg',
+          'assets/imgs/basura4.jpeg',
+        ],
+        markerOptions: {
+          title: 'BTL Marketing',
+          icon: {
+            url: 'assets/icon/basurero.png',
+            size: {
+              width: 32,
+              height: 32
+            }
+          },
+          animation: 'DROP',
+          position: new LatLng(43.0741904, -89.4009802)
+        }
       }
     ];
   }
 
   ionViewDidLoad() {
     this.loadMap();
+  }
+
+  presentPopover(marker) {
+    let popover = this.popoverCtrl.create(PopoverPage, {marker: marker});
+    popover.present();
   }
 
   loadMap() {
@@ -85,14 +121,12 @@ export class MapaPage {
 
     this.map.one(GoogleMapsEvent.MAP_READY)
       .then(() => {
-        console.log(this.markers);
-        console.log(typeof this.markers);
-        for(let markerOptions of this.markers){
-          this.map.addMarker(markerOptions)
+        for(let markerIt of this.markers){
+          this.map.addMarker(markerIt.markerOptions)
           .then(marker => {
             marker.on(GoogleMapsEvent.MARKER_CLICK)
               .subscribe(() => {
-                alert('clicked');
+                this.presentPopover(markerIt);
               });
 
           });

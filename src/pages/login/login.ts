@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AlertController, LoadingController, NavController} from 'ionic-angular';
+import {AlertController, Loading, LoadingController, NavController} from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {RegisterPage} from "../register/register";
 
@@ -51,7 +51,7 @@ export class LoginPage {
       subTitle: text,
       buttons: ['OK']
     });
-    alert.present(prompt);
+    alert.present();
   }
 
 }

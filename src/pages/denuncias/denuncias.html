@@ -31,6 +31,13 @@
     <ion-textarea [attr.rows]="3" [(ngModel)]="descripcion"></ion-textarea>
   </ion-item>
 
+  <button ion-button (click)="agregarImagen()">Agregar imagen</button>
+
+  <div class="images">
+    <div class="one-image" *ngFor="let image of imagenes">
+      <img [src]="image">
+    </div>
+  </div>
 </ion-content>
 
 <ion-footer no-lines no-border >

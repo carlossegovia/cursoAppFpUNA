@@ -86,4 +86,8 @@
     </plugin>
     <engine name="android" spec="~7.0.0" />
     <allow-navigation href="http://10.150.60.120:8101" />
+    <plugin name="cordova-plugin-telerik-imagepicker" spec="^2.2.2">
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
+    </plugin>
+    <allow-navigation href="http://10.133.21.251:8100" />
 </widget>
