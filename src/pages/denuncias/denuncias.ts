@@ -15,7 +15,7 @@ import {ImagePicker} from "@ionic-native/image-picker";
 export class DenunciasPage {
 
   // Definimos una variable que representa el título de nuestro nuevo Page
-  title: string = 'Denuncias';
+  title: string = 'Nueva Denuncia';
   nombre: string = "";
   asunto: string = "";
   descripcion: string = "";

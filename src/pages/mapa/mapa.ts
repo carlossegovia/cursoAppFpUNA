@@ -22,7 +22,7 @@ import {PopoverPage} from "../popover/popover";
   templateUrl: 'mapa.html',
 })
 export class MapaPage {
-  title: string = 'Mapa';
+  title: string = 'Mapa de Denuncias';
   map: GoogleMap;
   markers: Array<any>;
   constructor(public popoverCtrl: PopoverController) {
