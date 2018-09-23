@@ -1,11 +1,10 @@
 /**
  * Created by carlitos on 08/08/18
  */
-import { DomSanitizer } from '@angular/platform-browser';
-import {normalizeURL} from 'ionic-angular';
+import {DomSanitizer} from '@angular/platform-browser';
+import {NavController, normalizeURL} from 'ionic-angular';
 
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
 import {ImagePicker} from "@ionic-native/image-picker";
 
 @Component({
@@ -22,17 +21,10 @@ export class DenunciasPage {
   imagenes: Array<string> = [];
 
   constructor(public navCtrl: NavController, private imagePicker: ImagePicker, private DomSanitizer: DomSanitizer) {
-
   }
 
   enviarDenuncia() {
-    // Debe permanecer sin cambiar
-    console.log(this.title);
 
-    // Imprimimos los abributos que debieron cambiar
-    console.log(this.nombre);
-    console.log(this.asunto);
-    console.log(this.descripcion);
   }
 
   agregarImagen() {
@@ -40,22 +32,25 @@ export class DenunciasPage {
       outputType: 0
     };
 
-
-    if(!ImagePicker.installed()){
-      console.log('Error1','Plugin not Found!');
+    if (!ImagePicker.installed()) {
+      console.log('Error1', 'Plugin not Found!');
       return;
-    } else console.log('ImagePicker','Plugin Found!');
-    if(!this.imagePicker.hasReadPermission()){
+    } else {
+      console.log('ImagePicker', 'Plugin Found!');
+    }
+
+    if (!this.imagePicker.hasReadPermission()) {
       this.imagePicker.requestReadPermission();
+      console.log("se dio permisos");
       return;
     }
     this.imagePicker.getPictures(options).then((results) => {
       for (var i = 0; i < results.length; i++) {
-        let str =  normalizeURL(results[i]);
-        this.imagenes.push( str.replace('file://', ''));
+        let str = normalizeURL(results[i]);
+        this.imagenes.push(str.replace('file://', ''));
       }
     }, (err) => {
-      console.log('Error',err.toString())
+      console.log('Error', err.toString())
     });
 
   }
