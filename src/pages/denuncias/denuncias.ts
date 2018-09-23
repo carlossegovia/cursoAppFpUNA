@@ -27,6 +27,10 @@ export class DenunciasPage {
 
   }
 
+  showButton() {
+    return !!this.asunto && !!this.descripcion && !!this.nombre;
+  }
+
   agregarImagen() {
     const options = {
       outputType: 0
