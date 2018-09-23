@@ -13,7 +13,6 @@ import {AlertController, NavController} from 'ionic-angular';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
   createSuccess = false;
   registerCredentials = {email: '', password: ''};
 
