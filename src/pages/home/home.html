@@ -8,13 +8,16 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content padding class="layout vertical center-aligned">
+  <div style="text-align:center" id="div-logo">
+    <img class="flex center" id="logo" src="assets/imgs/logo3.png"
+         alt="Logo GreenTracker"/>
+  </div>
 
-  <ion-slides>
-    <ion-slide>
-      <img src="../assets/imgs/eco1.jpg">
-      <img src="../assets/imgs/logo2.png">
-    </ion-slide>
-  </ion-slides>
-
+  <div class=" buttons">
+    <button id="{{p.id}}" ion-button icon-left *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-icon name="{{p.icon}}"></ion-icon>
+      <strong>{{p.title}}</strong>
+    </button>
+  </div>
 </ion-content>
