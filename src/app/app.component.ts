@@ -15,7 +15,7 @@ import {LoginPage} from "../pages/login/login";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = LoginPage;
-  pages: Array<{ component: any, nombre: string }> = [];
+  pages: Array < {component: any, nombre: string, icon: string} > = [];
 
   constructor(platform: Platform, statusBar: StatusBar,
               public menu: MenuController, splashScreen: SplashScreen) {
@@ -26,7 +26,6 @@ export class MyApp {
       {component: ListadoPage, nombre: 'Mis Denuncias', icon: 'list'},
       {component: MapaPage, nombre: 'Mapa de Denuncias', icon: 'locate'},
       {component: LoginPage, nombre: 'Salir', icon: 'exit'}
-
     ];
 
     platform.ready().then(() => {
