@@ -10,43 +10,62 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-segment [(ngModel)]="segment" color="secondary" (ionChange)="segmentChanged()">
+    <ion-segment-button value="datos">
+      Datos
+    </ion-segment-button>
+    <ion-segment-button value="fotos">
+      Fotos
+    </ion-segment-button>
+  </ion-segment>
+  <div [hidden]="segment !== 'datos'">
+    <ion-item>
+      <ion-label floating>Nombre y Apellido</ion-label>
+      <ion-input type="text" required [(ngModel)]="nombre"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label floating>Nombre y Apellido</ion-label>
-    <ion-input type="text" required [(ngModel)]="nombre"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label floating>Asunto</ion-label>
+      <ion-select [(ngModel)]="asunto">
+        <ion-option>Contaminación</ion-option>
+        <ion-option>Deforestación</ion-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item>
-    <ion-label floating>Asunto</ion-label>
-    <ion-input type="text" required [(ngModel)]="asunto"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label floating>Descripción</ion-label>
+      <ion-textarea [attr.rows]="5" [(ngModel)]="descripcion"></ion-textarea>
+    </ion-item>
+    <div id="map_canvas"></div>
+  </div>
 
-  <ion-item>
-    <ion-label floating>Descripción</ion-label>
-    <ion-textarea [attr.rows]="5" [(ngModel)]="descripcion"></ion-textarea>
-  </ion-item>
+  <div [hidden]="segment !== 'fotos'">
+    <ion-row>
+      <ion-col width-50 >
+        <ion-item no-lines>
+          <button ion-button class="gallery-button" icon-start color="secondary" (click)="openCamera(0)">
+            <ion-icon name="albums"></ion-icon>
+            Galería
+          </button>
+        </ion-item>
+      </ion-col>
+      <ion-col width-50 >
+        <ion-item no-lines>
+          <button ion-button class="gallery-button" icon-start color="secondary" (click)="openCamera(1)">
+            <ion-icon name="camera"></ion-icon>
+            Camara
+          </button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
 
-  <ion-row>
-    <ion-col width-50>
-      <ion-item no-lines>
-        <button ion-button icon-start color="secondary" (click)="openCamera(0)">
-          <ion-icon name="albums"></ion-icon>
-          Galería
-        </button>
-      </ion-item>
-    </ion-col>
-    <ion-col width-50>
-      <ion-item no-lines>
-        <button ion-button icon-start color="secondary" (click)="openCamera(1)">
-          <ion-icon name="camera"></ion-icon>
-          Camara
-        </button>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+    <div class="images">
+      <div class="one-image" *ngFor="let image of imagenes">
+        <img [src]="domSanitizer.bypassSecurityTrustUrl(image)">
+      </div>
+    </div>
 
-  <img *ngIf="image"
-       [src]="domSanitizer.bypassSecurityTrustUrl(image)"/>
+  </div>
 
 
   <ion-fab right bottom [hidden]="!showButton()">

@@ -4,6 +4,7 @@
 
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'page-detalle',
@@ -16,12 +17,16 @@ export class DetallePage {
   nombre: string = "";
   asunto: string = "";
   descripcion: string = "";
+  imagenes: Array<string> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public domSanitizer: DomSanitizer,
+  ) {
     let denuncia = navParams.get("denuncia");
     this.nombre = denuncia.nombre;
     this.asunto = denuncia.asunto;
     this.descripcion = denuncia.descripcion;
+    this.imagenes = denuncia.imagenes;
 
   }
 

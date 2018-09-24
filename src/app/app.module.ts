@@ -14,6 +14,7 @@ import {LoginPage} from "../pages/login/login";
 import {RegisterPage} from "../pages/register/register";
 import {PopoverPage} from "../pages/popover/popover";
 import {Camera} from "@ionic-native/camera";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import {Camera} from "@ionic-native/camera";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +44,8 @@ import {Camera} from "@ionic-native/camera";
     ListadoPage,
     DetallePage,
     MapaPage,
-    PopoverPage
+    PopoverPage,
+
   ],
   providers: [
     StatusBar,

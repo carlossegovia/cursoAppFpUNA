@@ -13,14 +13,24 @@
   <ion-card>
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/imgs/logo.png">
+        <img src="{{asunto === 'Deforestación' ? 'assets/icon/deforestacion.png' : 'assets/icon/basurero.png'}}">
       </ion-avatar>
       <h2>{{nombre}}</h2>
       <p>{{asunto}}</p>
     </ion-item>
 
     <ion-card-content>
-      <p>{{descripcion}}</p>
+      <p >{{descripcion}}</p>
+      <hr>
+      <h2 text-center padding style="font-weight: bold">Imágenes</h2>
+      <ion-scroll scrollY="true">
+        <div class="images">
+          <div class="one-image" *ngFor="let image of imagenes">
+            <img [src]="domSanitizer.bypassSecurityTrustUrl(image)">
+          </div>
+        </div>
+      </ion-scroll>
+
     </ion-card-content>
   </ion-card>
 

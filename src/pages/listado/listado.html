@@ -12,13 +12,14 @@
 
 <ion-content padding>
 
-  <ion-list>
+  <ion-list *ngIf="denuncias.length">
     <ion-item *ngFor="let denuncia of denuncias" (click)="verDetalle(denuncia)">
       <ion-icon name="alert" color="danger" item-start></ion-icon>
       {{denuncia.nombre}}
       <ion-icon name="arrow-right" item-end></ion-icon>
     </ion-item>
   </ion-list>
+  <p *ngIf="!denuncias.length">No se encuentran denuncias</p>
 
 </ion-content>
 

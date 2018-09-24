@@ -28,7 +28,7 @@ export class LoginPage {
 
   public login() {
     this.showLoading();
-    if (this.registerCredentials.email == 'admin' && this.registerCredentials.password == 'admin') {
+    if ((this.registerCredentials.email == 'admin' || this.registerCredentials.email == 'Admin') && this.registerCredentials.password == 'admin') {
       this.nav.setRoot(HomePage);
     } else {
       this.showError("Credenciales Incorrectas");
