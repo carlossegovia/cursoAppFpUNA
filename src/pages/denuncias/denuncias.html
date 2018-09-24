@@ -27,17 +27,14 @@
   </ion-item>
 
   <ion-item no-lines>
-    <button ion-button icon-start color="secondary" (click)="agregarImagen()">
+    <button ion-button icon-start color="secondary" (click)="openCamera()">
       <ion-icon name="add"></ion-icon>
       Imagen
     </button>
   </ion-item>
 
-  <div class="images">
-    <div class="one-image" *ngFor="let image of imagenes">
-      <img [src]="image">
-    </div>
-  </div>
+  <img *ngIf="image"
+       [src]="domSanitizer.bypassSecurityTrustUrl(image)" />
 
 
   <ion-fab right bottom [hidden]="!showButton()">

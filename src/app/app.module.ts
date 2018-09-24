@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import {BrowserModule} from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {SplashScreen} from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import {MyApp} from './app.component';
+import {HomePage} from '../pages/home/home';
 import {DenunciasPage} from "../pages/denuncias/denuncias";
 import {ListadoPage} from "../pages/listado/listado";
 import {DetallePage} from "../pages/detalle/detalle";
@@ -13,7 +13,7 @@ import {MapaPage} from "../pages/mapa/mapa";
 import {LoginPage} from "../pages/login/login";
 import {RegisterPage} from "../pages/register/register";
 import {PopoverPage} from "../pages/popover/popover";
-import {ImagePicker} from "@ionic-native/image-picker";
+import {Camera} from "@ionic-native/camera";
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import {ImagePicker} from "@ionic-native/image-picker";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ImagePicker
+    Camera
   ]
 })
 export class AppModule {}
