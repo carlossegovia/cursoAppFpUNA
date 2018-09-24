@@ -41,28 +41,13 @@ export class DenunciasPage {
     return !!this.asunto && !!this.descripcion && !!this.nombre && !!this.image;
   }
 
-  setOptions(srcType) {
-    let options: CameraOptions = {
-      // Some common settings are 20, 50, and 100
-      quality: 50,
-      destinationType: Camera.DestinationType.FILE_URI,
-      // In this app, dynamically set the picture source, Camera or photo gallery
-      sourceType: srcType,
-      encodingType: Camera.EncodingType.JPEG,
-      mediaType: Camera.MediaType.PICTURE,
-      allowEdit: true,
-      correctOrientation: true  //Corrects Android orientation quirks
-    };
-    return options;
-  }
-
-
-  openCamera() {
+  openCamera(sourceType: number) {
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       saveToPhotoAlbum: true,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: sourceType
     };
 
     this.camera.getPicture(options).then((imageData) => {

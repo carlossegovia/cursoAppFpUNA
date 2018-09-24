@@ -26,15 +26,27 @@
     <ion-textarea [attr.rows]="5" [(ngModel)]="descripcion"></ion-textarea>
   </ion-item>
 
-  <ion-item no-lines>
-    <button ion-button icon-start color="secondary" (click)="openCamera()">
-      <ion-icon name="add"></ion-icon>
-      Imagen
-    </button>
-  </ion-item>
+  <ion-row>
+    <ion-col width-50>
+      <ion-item no-lines>
+        <button ion-button icon-start color="secondary" (click)="openCamera(0)">
+          <ion-icon name="albums"></ion-icon>
+          Galería
+        </button>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50>
+      <ion-item no-lines>
+        <button ion-button icon-start color="secondary" (click)="openCamera(1)">
+          <ion-icon name="camera"></ion-icon>
+          Camara
+        </button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 
   <img *ngIf="image"
-       [src]="domSanitizer.bypassSecurityTrustUrl(image)" />
+       [src]="domSanitizer.bypassSecurityTrustUrl(image)"/>
 
 
   <ion-fab right bottom [hidden]="!showButton()">
