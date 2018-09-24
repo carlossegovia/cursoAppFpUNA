@@ -3,7 +3,7 @@
     <name>GreenTracker</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.0.12:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -87,8 +87,5 @@
     <allow-navigation href="http://10.150.60.120:8101" />
     <allow-navigation href="http://10.133.21.251:8100" />
     <allow-navigation href="http://192.168.0.12:8100" />
-    <plugin name="cordova-plugin-telerik-imagepicker" spec="https://github.com/Telerik-Verified-Plugins/ImagePicker.git">
-        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
-    </plugin>
     <engine name="android" spec="7.0.0" />
 </widget>
