@@ -1,14 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import {BrowserModule} from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {SplashScreen} from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import {MyApp} from './app.component';
+import {HomePage} from '../pages/home/home';
 import {DenunciasPage} from "../pages/denuncias/denuncias";
 import {ListadoPage} from "../pages/listado/listado";
 import {DetallePage} from "../pages/detalle/detalle";
+import {MapaPage} from "../pages/mapa/mapa";
+import {LoginPage} from "../pages/login/login";
+import {RegisterPage} from "../pages/register/register";
+import {PopoverPage} from "../pages/popover/popover";
+import {Camera} from "@ionic-native/camera";
 
 @NgModule({
   declarations: [
@@ -16,7 +21,11 @@ import {DetallePage} from "../pages/detalle/detalle";
     HomePage,
     DenunciasPage, // Agregamos el nombre de nuestro nuevo Page
     ListadoPage,
-    DetallePage
+    DetallePage,
+    LoginPage,
+    RegisterPage,
+    MapaPage,
+    PopoverPage
   ],
   imports: [
     BrowserModule,
@@ -26,14 +35,19 @@ import {DetallePage} from "../pages/detalle/detalle";
   entryComponents: [
     MyApp,
     HomePage,
+    LoginPage,
+    RegisterPage,
     DenunciasPage, // Agregamos el nombre de nuestro nuevo Page
     ListadoPage,
-    DetallePage
+    DetallePage,
+    MapaPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera
   ]
 })
 export class AppModule {}

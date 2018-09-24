@@ -4,17 +4,20 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Ionic Blank
+      {{title}}
     </ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content padding class="layout vertical center-aligned">
+  <div style="text-align:center" id="div-logo">
+    <img class="flex center" id="logo" src="assets/imgs/logo3.png"
+         alt="Logo GreenTracker"/>
+  </div>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-
-  <!--Agregamos este boton-->
-  <button ion-button (click)="goToDenuncias()">Ir a Denuncias</button>
+  <div class=" buttons">
+    <button id="{{p.id}}" ion-button icon-left *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-icon name="{{p.icon}}"></ion-icon>
+      <strong>{{p.title}}</strong>
+    </button>
+  </div>
 </ion-content>

@@ -12,7 +12,7 @@ import {NavController, NavParams} from 'ionic-angular';
 export class DetallePage {
 
   // Definimos una variable que representa el título de nuestro nuevo Page
-  titlePage: string = 'Detalle';
+  title: string = 'Detalle';
   nombre: string = "";
   asunto: string = "";
   descripcion: string = "";

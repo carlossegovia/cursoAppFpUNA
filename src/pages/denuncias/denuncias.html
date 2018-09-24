@@ -1,16 +1,15 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
-      {{titlePage}}
+      {{title}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-  <ion-label>
-    Formulario de denuncias.
-  </ion-label>
 
   <ion-item>
     <ion-label floating>Nombre y Apellido</ion-label>
@@ -24,17 +23,36 @@
 
   <ion-item>
     <ion-label floating>Descripción</ion-label>
-    <ion-textarea [attr.rows]="3" [(ngModel)]="descripcion"></ion-textarea>
+    <ion-textarea [attr.rows]="5" [(ngModel)]="descripcion"></ion-textarea>
   </ion-item>
 
-</ion-content>
+  <ion-row>
+    <ion-col width-50>
+      <ion-item no-lines>
+        <button ion-button icon-start color="secondary" (click)="openCamera(0)">
+          <ion-icon name="albums"></ion-icon>
+          Galería
+        </button>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50>
+      <ion-item no-lines>
+        <button ion-button icon-start color="secondary" (click)="openCamera(1)">
+          <ion-icon name="camera"></ion-icon>
+          Camara
+        </button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 
-<ion-footer no-lines no-border >
-  <ion-toolbar no-border no-lines>
-    <ion-fab right bottom>
-      <button ion-fab color="secondary" (click)="enviarDenuncia()">
-        <ion-icon name="send"></ion-icon>
-      </button>
-    </ion-fab>
-  </ion-toolbar>
-</ion-footer>
+  <img *ngIf="image"
+       [src]="domSanitizer.bypassSecurityTrustUrl(image)"/>
+
+
+  <ion-fab right bottom [hidden]="!showButton()">
+    <button ion-fab color="secondary" (click)="enviarDenuncia()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
